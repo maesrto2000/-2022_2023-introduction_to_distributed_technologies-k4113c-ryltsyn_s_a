@@ -28,6 +28,9 @@ minikube kubectl -- expose pod vault --type=NodePort --port=8200
  ```
 minikube kubectl -- port-forward service/vault 8200:8200
 ```
+## Схема v1.0
+
+
 ![](https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr1/img/lr1.png)
 
 
