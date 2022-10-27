@@ -6,7 +6,7 @@ Group: K4113c
 Author: Ryltsyn Stepan Alexeyevich  
 Lab: Lab1  
 Date of create: 01.10.2022    
-Date of finished:  
+Date of finished: 27.10.2022  
 
 
 # Создание манифеста  
