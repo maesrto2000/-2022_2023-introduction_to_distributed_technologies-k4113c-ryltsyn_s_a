@@ -22,24 +22,16 @@ kubectl apply -f service.yaml
 ```
 kubectl get services
 ```  
-3. Проверяем статус пода  
+3. Делаем пробрас портов и подключаемся к контейнерам через браузер    
  ```
-kubectl get pods
+kubectl port-forward svc/indfr-service 80:80
 ```   
-4. Создаем сервис 
- ```
-minikube kubectl -- expose pod vault --type=NodePort --port=8200
-```
-5. Прокидываем порт для доступа к сервису 
- ```
-minikube kubectl -- port-forward service/vault 8200:8200
-```
-## Схема v1.0
+Можем увидеть значения наших переменных в браузере и посмотреть подробную информацию о репликах в Lens. 
+## Схема
 <div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr1/img/lr1.png"></div> 
 
 
-## Схема v1.1
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr1/img/v1.2.png"></div>
+
 
 
 
