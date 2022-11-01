@@ -28,7 +28,7 @@ kubectl port-forward svc/indfr-service 80:80
 ```   
 Можем увидеть значения наших переменных в браузере и посмотреть подробную информацию о репликах в Lens. Название контейнера состоит из деплоймента, хэш реплики сет, случайно сгенерированные сиволы, чтобы различать поды между друг другом. 
 ## Схема
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr1/img/lr1.png"></div> 
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr2/img/v1.png"></div> 
 
 
 
