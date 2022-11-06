@@ -6,7 +6,7 @@ Group: K4113c
 Author: Ryltsyn Stepan Alexeyevich  
 Lab: Lab2  
 Date of create: 14.10.2022    
-Date of finished:  
+Date of finished: 05.11.2022
 
 
 # Развертывание веб сервиса в Minikube, доступ к веб интерфейсу сервиса. Мониторинг сервиса.  
