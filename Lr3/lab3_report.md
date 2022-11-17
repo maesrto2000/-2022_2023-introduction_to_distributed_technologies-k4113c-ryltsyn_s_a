@@ -13,11 +13,21 @@ Date of finished: 05.11.2022
 ## Ход работы 
 1. Создаем файлы деплоймента (указываем количество реплик) и сервиса. 
 ```
-kubectl apply -f deploy.yaml
+minikube addons enable ingress   
 ```  
 ```
-kubectl apply -f service.yaml
+kubectl apply -f cm.yaml -f deploy.yaml -f service.yaml -f ingress.yaml    
 ``` 
+```
+kubectl describe ingress 
+``` 
+```
+minikube ip
+``` 
+```
+192.168.49.2 onetestexamle.com    
+``` 
+
 2. Просматриваем созданные сервисы  
 ```
 kubectl get services
