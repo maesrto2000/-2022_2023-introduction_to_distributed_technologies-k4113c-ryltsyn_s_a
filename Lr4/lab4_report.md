@@ -32,8 +32,7 @@ kubectl exec -i -n kube-system calicoctl -- /calicoctl create -f - <  C:\Program
 4. Далее запукаем деплоймент, конфигмап и сервес. Ждем, когда поды будут запущены. Можем видеть, что поды получили корректные адреса. 
 <div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/7.png"></div><br> 
 В Ленс видно, что названию имени сервиса соответствую IP, полученные подами. 
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/13.png"></div><br> 
-
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/13.png"></div><br>
 5. Пробрасывем порты и смотрим результат в браузере 
 <div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/s2.png"></div><br>
 Обновлем страницу
