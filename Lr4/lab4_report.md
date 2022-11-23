@@ -4,63 +4,38 @@ Course: [Introduction to distributed technologies](https://github.com/itmo-ict-f
 Year: 2022/2023  
 Group: K4113c    
 Author: Ryltsyn Stepan Alexeyevich  
-Lab: Lab3  
-Date of create: 17.11.2022    
-Date of finished: 20.11.2022
+Lab: Lab4  
+Date of create: 23.11.2022    
+Date of finished: 
 
 
-# Сертификаты и "секреты" в Minikube, безопасное хранение данных.
+# Сети связи в Minikube, CNI и CoreDNS
 ## Ход работы 
-1. Создаем деплоймент и конфигмап 
+1. Исходя из инструкции создадим две ноды и при запуске укажем плагин Calico
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/1.png"></div><br>  
+2. Далее необходимо установить calicoctl как модуль кубернетис
+
 ```
-kubectl apply -f cm.yaml -f deploy.yaml  
+kubectl apply -f calicoctl.yaml  
 ``` 
-Просматриваем конфигмап в ленс:
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/cm_lens.png"></div><br>  
-Просматриваем значения переменных и делаем проброс портов:
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/env.png"></div><br>
-Результат отображается в браузере - перменные удалось успешно передать с помощью конфигмапа:
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/cm_lens.png"></div><br>
-2. Включаем ingress  
-    
-```
-minikube addons enable ingress   
-```
+На скриншоте ниже видно, что установка прошла успешно
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/2.png"></div><br> 
+3. Создаем манфест ippool, где указываем ip адреса и зоны.
 
-Устанавливаем ingress controller
 ```
-kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
+kubectl exec -i -n kube-system calicoctl -- /calicoctl create -f - <  C:\Programming\kubernetes\lr4\ippool.yaml 
 ``` 
-После чего создаем файл сервиса и ингресса, вносим изменения в деплоймент и выполняем команду:
-```
-kubectl apply -f cm.yaml -f deploy.yaml -f service.yaml -f ingress.yaml    
-``` 
-Вносим в hosts minikube ip и доменное имя, которое указано в ингрессе. Выполняем команду:
+В результате успешно создались два ippool-а
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/5.png"></div><br> 
+Посмотрим более подробно
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/6.png"></div><br> 
 
-```
-minikube tunnel
-```
+4. Далее запукаем деплоймент, конфигмап и сервес. Ждем, когда поды будут запущены. Можем видеть, что поды получили корректные адреса. 
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/7.png"></div><br> 
+В Ленс видно, что названию имени сервиса соответствую IP, полученные подами. 
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/13.png"></div><br> 
 
-Проверяем работоспособность нашего ингресса - вводим это доменное имя в браузер и видим, что все работает корректно - наш ингресс смог достучаться до сервиса, а сервис до пода:
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/photo_2022-11-18_23-30-53.jpg"></div><br>
-
-Генерируем файлики `tls.key` и `tls.crt` для нашего доменного имени 
-
-```
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=onetestexamle.com"
-``` 
-Создаем секрет 
-
-```
-kubectl create secret tls test-tls --key="tls.key" --cert="tls.crt"
-```
-Модифицируем ингресс: добавляем имя секрета и поле hosts, обновляем ингресс и производим обращение по https 
-```
-curl --cacert tls.crt https://onetestexamle.com  
-``` 
-
-Проверка наличия сертификата
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/photo_2022-11-19_00-59-29.jpg"></div><br>
+5. Пробрасывем порты и смотрим результат в браузере 
  
 ## Схема
 <div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/v1.png"></div> 
