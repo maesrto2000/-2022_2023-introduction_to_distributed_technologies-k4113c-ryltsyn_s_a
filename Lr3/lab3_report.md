@@ -6,7 +6,7 @@ Group: K4113c
 Author: Ryltsyn Stepan Alexeyevich  
 Lab: Lab3  
 Date of create: 17.11.2022    
-Date of finished: 
+Date of finished: 20.11.2022
 
 
 # Сертификаты и "секреты" в Minikube, безопасное хранение данных.
