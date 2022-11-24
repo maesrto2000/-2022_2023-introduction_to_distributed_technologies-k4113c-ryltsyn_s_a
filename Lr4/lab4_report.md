@@ -43,7 +43,7 @@ kubectl exec -i -n kube-system calicoctl -- /calicoctl create -f - <  C:\Program
 <div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/11.png"></div><br>
 
 ## Схема
-<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr3/img/v1.png"></div> 
+<div align = "center"><img src="https://github.com/maesrto2000/-2022_2023-introduction_to_distributed_technologies-k4113c-ryltsyn_s_a/blob/main/Lr4/img/v1.png"></div> 
 
 
 
