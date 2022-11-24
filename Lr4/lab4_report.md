@@ -6,7 +6,7 @@ Group: K4113c
 Author: Ryltsyn Stepan Alexeyevich  
 Lab: Lab4  
 Date of create: 23.11.2022    
-Date of finished: 
+Date of finished: 24.11.2022
 
 
 # Сети связи в Minikube, CNI и CoreDNS
